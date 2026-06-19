@@ -1,7 +1,6 @@
 import { supabase } from "../lib/supabase";
 
 export default async function Home() {
-
   const { data: alerts } = await supabase
     .from("breaking_alerts")
     .select("*")
@@ -15,14 +14,20 @@ export default async function Home() {
     .limit(1);
 
   return (
-    <main style={{maxWidth: "900px", margin: "auto", padding: "20px"}}>
+    <main
+      style={{
+        maxWidth: "900px",
+        margin: "auto",
+        padding: "20px"
+      }}
+    >
       <h1>Breaking News AI</h1>
 
       <p>Co-powered by Sprint Solutions</p>
 
       <h2>🔥 Breaking Alerts</h2>
 
-      {alerts?.map((alert) => (
+      {(alerts || []).map((alert: any) => (
         <div
           key={alert.id}
           style={{
@@ -39,7 +44,7 @@ export default async function Home() {
 
       <h2>📰 Daily Digest</h2>
 
-      {digest?.map((d) => (
+      {(digest || []).map((d: any) => (
         <div key={d.id}>
           <h3>{d.title}</h3>
           <p>{d.digest_text}</p>
