@@ -3,29 +3,39 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 
 export async function POST(req: Request) {
-  try {
-    const { message } = await req.json();
+  const { message } = await req.json();
 
-    const model = genAI.getGenerativeModel({
-      model: "gemini-2.5-flash",
-    });
+  const model = genAI.getGenerativeModel({
+    model: "gemini-2.5-flash",
+  });
 
-    const result = await model.generateContent(`
+  const result = await model.generateContentStream(`
 You are Breaking News AI.
 
-Answer ONLY using recent world news knowledge.
-Keep answers factual, concise and easy to understand.
+You answer only about news.
 
 User:
 ${message}
 `);
 
-    return Response.json({
-      answer: result.response.text(),
-    });
-  } catch (e) {
-    return Response.json({
-      answer: "Unable to generate response.",
-    });
-  }
+  const stream = new ReadableStream({
+    async start(controller) {
+      const encoder = new TextEncoder();
+
+      for await (const chunk of result.stream) {
+        controller.enqueue(
+          encoder.encode(chunk.text())
+        );
+      }
+
+      controller.close();
+    },
+  });
+
+  return new Response(stream, {
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Cache-Control": "no-cache",
+    },
+  });
 }
