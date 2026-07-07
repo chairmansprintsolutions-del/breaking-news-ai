@@ -1,3 +1,4 @@
+import Navbar from "./components/Navbar";
 import { supabase } from "../../../lib/supabase";
 import { notFound } from "next/navigation";
 
@@ -27,6 +28,7 @@ export default async function AlertPage({
         fontFamily: "Arial, sans-serif",
       }}
     >
+      <Navbar />
       {alert.image_url && (
         <img
           src={alert.image_url}
