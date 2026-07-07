@@ -1,111 +1,202 @@
-import Navbar from "../components/Navbar";
+"use client";
 
-export default function Chat() {
+import { useState } from "react";
+
+export default function ChatPage() {
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const [messages, setMessages] = useState<
+    {
+      role: "user" | "assistant";
+      text: string;
+    }[]
+  >([
+    {
+      role: "assistant",
+      text: "👋 Hello! I'm Breaking News AI. Ask me anything about current world news.",
+    },
+  ]);
+
+  async function send() {
+    if (!message.trim()) return;
+
+    const userMessage = message;
+
+    setMessages((m) => [
+      ...m,
+      {
+        role: "user",
+        text: userMessage,
+      },
+    ]);
+
+    setMessage("");
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: userMessage,
+        }),
+      });
+
+      const data = await res.json();
+
+      setMessages((m) => [
+        ...m,
+        {
+          role: "assistant",
+          text: data.answer,
+        },
+      ]);
+    } catch {
+      setMessages((m) => [
+        ...m,
+        {
+          role: "assistant",
+          text: "Unable to contact AI.",
+        },
+      ]);
+    }
+
+    setLoading(false);
+  }
+
   return (
     <main
       style={{
-        maxWidth: "1100px",
-        margin: "0 auto",
-        padding: "30px",
+        maxWidth: "1000px",
+        margin: "40px auto",
         fontFamily: "Arial",
       }}
     >
-      <Navbar />
-
-      <h1>💬 AI News Chat</h1>
+      <h1>💬 Breaking News AI Chat</h1>
 
       <div
         style={{
           background: "#fff",
           borderRadius: "12px",
-          padding: "25px",
+          height: "600px",
+          overflowY: "auto",
+          padding: "20px",
           boxShadow: "0 2px 10px rgba(0,0,0,.08)",
         }}
       >
-        <div
-          style={{
-            height: "500px",
-            overflowY: "auto",
-            border: "1px solid #ddd",
-            borderRadius: "10px",
-            padding: "20px",
-            marginBottom: "20px",
-            background: "#fafafa",
-          }}
-        >
+        {messages.map((m, i) => (
           <div
+            key={i}
             style={{
-              background: "#e8f0fe",
-              padding: "15px",
-              borderRadius: "10px",
-              marginBottom: "15px",
-              maxWidth: "80%",
+              marginBottom: "20px",
+              display: "flex",
+              justifyContent:
+                m.role === "user"
+                  ? "flex-end"
+                  : "flex-start",
             }}
           >
-            👋 Hello! I'm your AI News Assistant.
-            <br />
-            Ask me anything about today's news.
+            <div
+              style={{
+                background:
+                  m.role === "user"
+                    ? "#2563eb"
+                    : "#f3f4f6",
+                color:
+                  m.role === "user"
+                    ? "#fff"
+                    : "#000",
+                padding: "15px",
+                borderRadius: "12px",
+                maxWidth: "75%",
+                whiteSpace: "pre-wrap",
+              }}
+            >
+              {m.text}
+            </div>
           </div>
-        </div>
+        ))}
 
-        <div
+        {loading && (
+          <p>🤖 Thinking...</p>
+        )}
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          gap: "10px",
+          marginTop: "20px",
+        }}
+      >
+        <input
+          value={message}
+          onChange={(e) =>
+            setMessage(e.target.value)
+          }
+          onKeyDown={(e) => {
+            if (e.key === "Enter") send();
+          }}
+          placeholder="Ask anything..."
           style={{
-            display: "flex",
-            gap: "10px",
+            flex: 1,
+            padding: "15px",
+            borderRadius: "8px",
+            border: "1px solid #ccc",
+            fontSize: "16px",
+          }}
+        />
+
+        <button
+          onClick={send}
+          disabled={loading}
+          style={{
+            background: "#2563eb",
+            color: "#fff",
+            border: "none",
+            padding: "15px 30px",
+            borderRadius: "8px",
+            cursor: "pointer",
           }}
         >
-          <input
-            type="text"
-            placeholder="Type your question..."
-            style={{
-              flex: 1,
-              padding: "15px",
-              borderRadius: "8px",
-              border: "1px solid #ccc",
-              fontSize: "16px",
-            }}
-          />
+          Send
+        </button>
+      </div>
 
+      <div
+        style={{
+          marginTop: "30px",
+          display: "flex",
+          gap: "10px",
+          flexWrap: "wrap",
+        }}
+      >
+        {[
+          "Top headlines today",
+          "Explain today's biggest story",
+          "Latest AI news",
+          "India news",
+          "Market update",
+          "Technology news",
+        ].map((q) => (
           <button
+            key={q}
+            onClick={() => setMessage(q)}
             style={{
-              background: "#2563eb",
-              color: "#fff",
+              background: "#eee",
               border: "none",
-              padding: "15px 25px",
-              borderRadius: "8px",
+              padding: "10px 15px",
+              borderRadius: "20px",
               cursor: "pointer",
             }}
           >
-            Send
+            {q}
           </button>
-        </div>
-
-        <div
-          style={{
-            marginTop: "25px",
-          }}
-        >
-          <h3>Suggested Questions</h3>
-
-          <button style={btn}>World News</button>
-          <button style={btn}>India News</button>
-          <button style={btn}>Markets</button>
-          <button style={btn}>Technology</button>
-          <button style={btn}>AI</button>
-          <button style={btn}>Top Headlines</button>
-          <button style={btn}>Trending</button>
-          <button style={btn}>Explain Today's Biggest Story</button>
-        </div>
+        ))}
       </div>
     </main>
   );
 }
-
-const btn = {
-  margin: "6px",
-  padding: "10px 16px",
-  borderRadius: "8px",
-  border: "1px solid #ddd",
-  background: "#fff",
-  cursor: "pointer",
-};
