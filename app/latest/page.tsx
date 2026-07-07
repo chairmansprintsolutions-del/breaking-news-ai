@@ -1,4 +1,3 @@
-import Navbar from "./components/Navbar";
 import { supabase } from "../../lib/supabase";
 
 export default async function LatestNews() {
@@ -16,7 +15,6 @@ export default async function LatestNews() {
         fontFamily: "Arial",
       }}
     >
-      <Navbar />
       <h1>🌍 Latest News</h1>
 
       <div
