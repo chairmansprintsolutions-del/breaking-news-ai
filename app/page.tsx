@@ -13,6 +13,12 @@ export default async function Home() {
     .order("created_at", { ascending: false })
     .limit(1);
 
+  const { data: latest } = await supabase
+    .from("articles")
+    .select("*")
+    .order("created_at", { ascending: false })
+    .limit(20);
+
   return (
     <main
       style={{
@@ -20,7 +26,7 @@ export default async function Home() {
         margin: "0 auto",
         padding: "30px",
         fontFamily: "Arial, Helvetica, sans-serif",
-        backgroundColor: "#f5f5f5",
+        background: "#f5f5f5",
         minHeight: "100vh",
       }}
     >
@@ -36,20 +42,14 @@ export default async function Home() {
       <p
         style={{
           color: "#666",
-          marginBottom: "35px",
           fontSize: "18px",
+          marginBottom: "35px",
         }}
       >
         AI Powered • Co-powered by Sprint Solutions
       </p>
 
-      <h2
-        style={{
-          marginBottom: "20px",
-        }}
-      >
-        🔥 Breaking Alerts
-      </h2>
+      <h2>🔥 Breaking Alerts</h2>
 
       <div
         style={{
@@ -74,7 +74,7 @@ export default async function Home() {
                 alt={alert.title}
                 style={{
                   width: "100%",
-                  height: "230px",
+                  height: "220px",
                   objectFit: "cover",
                 }}
               />
@@ -85,35 +85,20 @@ export default async function Home() {
                 style={{
                   color: "#888",
                   fontSize: "13px",
-                  marginBottom: "12px",
+                  marginBottom: "10px",
                 }}
               >
                 🌍 {alert.category || "World"} •{" "}
                 {new Date(alert.created_at).toLocaleString()}
               </div>
 
-              <h3
-                style={{
-                  marginTop: 0,
-                  lineHeight: "1.4",
-                }}
-              >
-                {alert.title}
-              </h3>
+              <h3>{alert.title}</h3>
 
-              <p
-                style={{
-                  color: "#444",
-                  lineHeight: "1.6",
-                }}
-              >
-                {alert.summary}
-              </p>
+              <p>{alert.summary}</p>
 
               <p
                 style={{
                   color: "#666",
-                  fontSize: "14px",
                   lineHeight: "1.6",
                 }}
               >
@@ -143,7 +128,6 @@ export default async function Home() {
       <h2
         style={{
           marginTop: "60px",
-          marginBottom: "20px",
         }}
       >
         📰 Daily Digest
@@ -157,6 +141,7 @@ export default async function Home() {
             padding: "25px",
             borderRadius: "15px",
             boxShadow: "0 4px 15px rgba(0,0,0,0.12)",
+            marginBottom: "40px",
           }}
         >
           <h3>{d.title}</h3>
@@ -165,13 +150,55 @@ export default async function Home() {
             style={{
               whiteSpace: "pre-wrap",
               lineHeight: "1.8",
-              color: "#444",
             }}
           >
             {d.digest_text}
           </div>
         </div>
       ))}
+
+      <h2
+        style={{
+          marginTop: "40px",
+          marginBottom: "20px",
+        }}
+      >
+        🌍 Latest News
+      </h2>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit,minmax(320px,1fr))",
+          gap: "20px",
+        }}
+      >
+        {(latest || []).map((article: any) => (
+          <div
+            key={article.id}
+            style={{
+              background: "#fff",
+              padding: "20px",
+              borderRadius: "12px",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+            }}
+          >
+            <div
+              style={{
+                color: "#888",
+                fontSize: "13px",
+                marginBottom: "10px",
+              }}
+            >
+              {article.source} • {article.category}
+            </div>
+
+            <h3>{article.title}</h3>
+
+            <p>{article.summary}</p>
+          </div>
+        ))}
+      </div>
 
       <footer
         style={{
