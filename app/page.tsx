@@ -1,3 +1,4 @@
+import Navbar from "./components/Navbar";
 import { supabase } from "../lib/supabase";
 
 export default async function Home() {
@@ -30,6 +31,7 @@ export default async function Home() {
         minHeight: "100vh",
       }}
     >
+      <Navbar />
       <h1
         style={{
           fontSize: "42px",
