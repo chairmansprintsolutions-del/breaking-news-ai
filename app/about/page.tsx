@@ -4,9 +4,9 @@ export default function About() {
   return (
     <main
       style={{
-        maxWidth: "1000px",
+        maxWidth: "1200px",
         margin: "0 auto",
-        padding: "30px",
+        padding: "40px",
         fontFamily: "Arial, Helvetica, sans-serif",
       }}
     >
@@ -14,48 +14,107 @@ export default function About() {
 
       <h1>About Breaking News AI</h1>
 
-      <p>
-        Breaking News AI is an AI-powered global news platform that collects,
-        analyzes, summarizes and publishes important news from trusted sources
-        worldwide.
+      <p style={{ fontSize: "18px", lineHeight: "1.8" }}>
+        Breaking News AI is an AI-powered global news platform that monitors
+        trusted news sources around the world, identifies important events,
+        summarizes developments using Artificial Intelligence and presents them
+        in a fast, easy-to-read format.
       </p>
 
-      <h2>Features</h2>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))",
+          gap: "20px",
+          marginTop: "40px",
+        }}
+      >
+        <div style={card}>
+          <h2>🚨 Breaking News</h2>
+          <p>
+            AI continuously monitors trusted sources to detect important
+            developments in real time.
+          </p>
+        </div>
 
-      <ul>
-        <li>🌍 Global News Coverage</li>
-        <li>🤖 AI Generated Summaries</li>
-        <li>⚡ Breaking News Alerts</li>
-        <li>📰 Daily News Digest</li>
-        <li>📈 Importance Scoring</li>
-        <li>🧠 AI Powered Analysis</li>
-        <li>🔍 Search</li>
-        <li>📱 Mobile Friendly</li>
-      </ul>
+        <div style={card}>
+          <h2>🧠 AI Analysis</h2>
+          <p>
+            Every article is summarized, ranked and explained using modern AI
+            models.
+          </p>
+        </div>
 
-      <h2>Sources</h2>
+        <div style={card}>
+          <h2>🌍 Global Coverage</h2>
+          <p>
+            World, India, Technology, Business, Science, Markets, Sports and
+            more.
+          </p>
+        </div>
 
-      <ul>
-        <li>BBC</li>
-        <li>Reuters</li>
-        <li>Wall Street Journal</li>
-        <li>New York Times</li>
-        <li>TechCrunch</li>
-        <li>The Verge</li>
-        <li>Al Jazeera</li>
-        <li>Indian News Sources</li>
-      </ul>
+        <div style={card}>
+          <h2>⚡ Fast Updates</h2>
+          <p>
+            Automated pipelines ensure the latest stories appear within minutes.
+          </p>
+        </div>
 
-      <h2>Disclaimer</h2>
+        <div style={card}>
+          <h2>📊 AI Insights</h2>
+          <p>
+            Understand why a story matters, possible impacts and emerging
+            trends.
+          </p>
+        </div>
 
-      <p>
-        News summaries are generated using Artificial Intelligence. Original
-        copyrights belong to their respective publishers.
-      </p>
+        <div style={card}>
+          <h2>🔒 Trusted Sources</h2>
+          <p>
+            News is collected from reputable publishers before AI processing and
+            presentation.
+          </p>
+        </div>
+      </div>
 
-      <p style={{ marginTop: "50px", color: "#666" }}>
-        © 2026 Breaking News AI • Co-powered by Sprint Solutions
-      </p>
+      <div
+        style={{
+          marginTop: "50px",
+          padding: "30px",
+          background: "#fff",
+          borderRadius: "12px",
+          boxShadow: "0 2px 8px rgba(0,0,0,.08)",
+        }}
+      >
+        <h2>Our Mission</h2>
+
+        <p style={{ lineHeight: "1.8" }}>
+          Our mission is to make global news easier to understand using AI,
+          allowing readers to quickly grasp important events without information
+          overload.
+        </p>
+      </div>
+
+      <div
+        style={{
+          marginTop: "40px",
+          textAlign: "center",
+        }}
+      >
+        <h2>Co-powered by Sprint Solutions</h2>
+
+        <p>
+          Building AI products for news, automation and intelligent decision
+          support.
+        </p>
+      </div>
     </main>
   );
 }
+
+const card = {
+  background: "#fff",
+  padding: "25px",
+  borderRadius: "12px",
+  boxShadow: "0 2px 8px rgba(0,0,0,.08)",
+};
