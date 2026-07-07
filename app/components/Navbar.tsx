@@ -46,6 +46,26 @@ export default function Navbar() {
       </a>
 
       <a
+        href="/trending"
+        style={{
+          color: "#ffffff",
+          textDecoration: "none",
+        }}
+      >
+        🔥 Trending
+      </a>
+
+      <a
+        href="/60seconds"
+        style={{
+          color: "#ffffff",
+          textDecoration: "none",
+        }}
+      >
+        ⚡ 60 Seconds
+      </a>
+
+      <a
         href="/world"
         style={{
           color: "#ffffff",
@@ -123,16 +143,6 @@ export default function Navbar() {
         }}
       >
         ✉️ Contact
-      </a>
-
-      <a
-        href="/trending"
-        style={{
-          color: "#ffffff",
-          textDecoration: "none",
-        }}
-      >
-        🔥 Trending
       </a>
     </nav>
   );
