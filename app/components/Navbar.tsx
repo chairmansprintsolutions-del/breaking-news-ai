@@ -8,7 +8,7 @@ export default function Navbar() {
         borderRadius: "12px",
         display: "flex",
         alignItems: "center",
-        gap: "25px",
+        gap: "20px",
         flexWrap: "wrap",
       }}
     >
@@ -18,7 +18,8 @@ export default function Navbar() {
           color: "#ffffff",
           textDecoration: "none",
           fontWeight: "bold",
-          fontSize: "18px",
+          fontSize: "20px",
+          marginRight: "20px",
         }}
       >
         🚨 Breaking News AI
@@ -112,6 +113,26 @@ export default function Navbar() {
         }}
       >
         ℹ️ About
+      </a>
+
+      <a
+        href="/contact"
+        style={{
+          color: "#ffffff",
+          textDecoration: "none",
+        }}
+      >
+        ✉️ Contact
+      </a>
+
+      <a
+        href="/trending"
+        style={{
+          color: "#ffffff",
+          textDecoration: "none",
+        }}
+      >
+        🔥 Trending
       </a>
     </nav>
   );
