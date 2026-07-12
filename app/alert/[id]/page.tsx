@@ -105,7 +105,7 @@ export default async function AlertPage({
 
         <article className="article-container">
           <div className="breaking-label">
-            ● BREAKING • {alert.category || "NEWS"}
+            ● BREAKING • {alert.source || "NEWS"}
           </div>
 
           <h1 className="article-title">
