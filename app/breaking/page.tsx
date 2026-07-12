@@ -103,7 +103,7 @@ export default async function BreakingPage() {
                 marginTop: "15px",
               }}
             >
-              ● BREAKING • {alert.category || "NEWS"}
+              ● BREAKING • {alert.source || "NEWS"}
             </div>
 
             <h2
