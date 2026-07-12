@@ -67,6 +67,7 @@ export default function Navbar() {
       }}
     >
       <a href="/archive">Archive</a>
+      <a href="/search">Search</a>
       <a
         href="/"
         style={{
