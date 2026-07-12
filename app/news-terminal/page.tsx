@@ -81,7 +81,7 @@ export default async function NewsTerminal() {
                   textDecoration: "none",
                 }}
               >
-                OPEN REPORT >>
+                OPEN REPORT &gt;&gt;
               </a>
             </div>
           </div>
