@@ -1,150 +1,175 @@
 import Navbar from "../components/Navbar";
 import { supabase } from "../../lib/supabase";
 
-export default async function Breaking() {
-  const { data: articles } = await supabase
-    .from("articles")
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+export default async function BreakingPage() {
+  const last24Hours = new Date(
+    Date.now() - 24 * 60 * 60 * 1000
+  ).toISOString();
+
+  const { data: alerts, error } = await supabase
+    .from("breaking_alerts")
     .select("*")
-    .gte("importance_score", 85)
-    .order("importance_score", { ascending: false })
-    .order("created_at", { ascending: false });
+    .gte("created_at", last24Hours)
+    .order("created_at", { ascending: false })
+    .limit(100);
 
   return (
     <main
       style={{
         maxWidth: "1400px",
         margin: "0 auto",
-        padding: "30px",
-        fontFamily: "Arial",
-        background: "#fafafa",
-        minHeight: "100vh",
+        padding: "24px",
+        fontFamily: "Arial, sans-serif",
       }}
     >
       <Navbar />
 
-      <h1>🚨 Breaking News Center</h1>
-
-      <p
+      <header
         style={{
-          color: "#666",
+          borderBottom: "5px solid #a40000",
           marginBottom: "30px",
+          paddingBottom: "20px",
         }}
       >
-        Highest priority stories detected by AI.
-      </p>
-
-      {(articles || []).map((article: any) => (
         <div
-          key={article.id}
           style={{
-            background: "#fff",
-            borderRadius: "15px",
-            marginBottom: "25px",
-            overflow: "hidden",
-            boxShadow: "0 3px 10px rgba(0,0,0,.08)",
+            color: "#a40000",
+            fontWeight: "900",
+            letterSpacing: "2px",
           }}
         >
-          {article.image_url && (
-            <img
-              src={article.image_url}
-              alt={article.title}
-              style={{
-                width: "100%",
-                height: "320px",
-                objectFit: "cover",
-              }}
-            />
-          )}
+          LIVE • LAST 24 HOURS
+        </div>
 
-          <div
+        <h1
+          style={{
+            fontFamily: "Georgia, serif",
+            fontSize: "clamp(42px, 7vw, 72px)",
+            margin: "10px 0",
+          }}
+        >
+          🚨 Breaking News
+        </h1>
+
+        <p>
+          Major developing stories and urgent news alerts from
+          the last 24 hours.
+        </p>
+      </header>
+
+      {error && (
+        <p>
+          Unable to load breaking alerts: {error.message}
+        </p>
+      )}
+
+      <section
+        style={{
+          display: "grid",
+          gridTemplateColumns:
+            "repeat(auto-fit, minmax(320px, 1fr))",
+          gap: "30px",
+        }}
+      >
+        {(alerts || []).map((alert: any) => (
+          <article
+            key={alert.id}
             style={{
-              padding: "25px",
+              borderBottom: "3px solid #111",
+              paddingBottom: "25px",
             }}
           >
+            {alert.image_url && (
+              <img
+                src={alert.image_url}
+                alt={alert.title}
+                style={{
+                  width: "100%",
+                  height: "240px",
+                  objectFit: "cover",
+                }}
+              />
+            )}
+
             <div
               style={{
-                display: "flex",
-                justifyContent: "space-between",
-                flexWrap: "wrap",
-                marginBottom: "15px",
+                color: "#a40000",
+                fontWeight: "900",
+                fontSize: "12px",
+                letterSpacing: "1px",
+                marginTop: "15px",
               }}
             >
-              <span
-                style={{
-                  background: "#dc2626",
-                  color: "#fff",
-                  padding: "6px 12px",
-                  borderRadius: "6px",
-                }}
-              >
-                🚨 BREAKING
-              </span>
-
-              <span>
-                {article.source} • {article.importance_score}/100
-              </span>
+              ● BREAKING • {alert.category || "NEWS"}
             </div>
 
-            <h2>{article.title}</h2>
+            <h2
+              style={{
+                fontFamily: "Georgia, serif",
+                fontSize: "28px",
+                lineHeight: "1.1",
+              }}
+            >
+              {alert.title}
+            </h2>
 
-            <p>{article.summary}</p>
+            <small style={{ color: "#777" }}>
+              {new Date(alert.created_at).toLocaleString(
+                "en-IN"
+              )}
+            </small>
 
-            <p>
-              <strong>Why it matters:</strong>{" "}
-              {article.why_it_matters}
+            <p
+              style={{
+                lineHeight: "1.7",
+                color: "#444",
+              }}
+            >
+              {alert.summary}
             </p>
 
-            <div
+            {alert.why_it_matters && (
+              <p>
+                <strong>Why it matters:</strong>{" "}
+                {alert.why_it_matters}
+              </p>
+            )}
+
+            <a
+              href={`/alert/${alert.id}`}
               style={{
-                display: "flex",
-                gap: "12px",
-                marginTop: "20px",
-                flexWrap: "wrap",
+                display: "inline-block",
+                marginTop: "10px",
+                color: "#a40000",
+                fontWeight: "900",
+                textDecoration: "none",
+                borderBottom: "2px solid #a40000",
               }}
             >
-              <a
-                href={`/alert/${article.id}`}
-                style={{
-                  background: "#2563eb",
-                  color: "#fff",
-                  padding: "10px 18px",
-                  borderRadius: "8px",
-                  textDecoration: "none",
-                }}
-              >
-                Read Full Story
-              </a>
+              Full Analysis →
+            </a>
+          </article>
+        ))}
+      </section>
 
-              <a
-                href={`/explain/${article.id}`}
-                style={{
-                  background: "#16a34a",
-                  color: "#fff",
-                  padding: "10px 18px",
-                  borderRadius: "8px",
-                  textDecoration: "none",
-                }}
-              >
-                AI Explain
-              </a>
-
-              <a
-                href={article.url}
-                target="_blank"
-                style={{
-                  background: "#6b7280",
-                  color: "#fff",
-                  padding: "10px 18px",
-                  borderRadius: "8px",
-                  textDecoration: "none",
-                }}
-              >
-                Original Source
-              </a>
-            </div>
-          </div>
+      {!error && (!alerts || alerts.length === 0) && (
+        <div
+          style={{
+            padding: "60px 20px",
+            textAlign: "center",
+            background: "#f5f5f5",
+          }}
+        >
+          <h2>No breaking alerts in the last 24 hours</h2>
+          <p>
+            The live news collector continues to monitor current
+            developments.
+          </p>
         </div>
-      ))}
+      )}
     </main>
   );
 }
