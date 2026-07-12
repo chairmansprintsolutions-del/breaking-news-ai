@@ -1,7 +1,8 @@
 import Navbar from "./components/Navbar";
 import { supabase } from "../lib/supabase";
 
-export const revalidate = 300;
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 function formatDate(date?: string) {
   if (!date) return "";
@@ -37,6 +38,10 @@ function categoryIcon(category?: string) {
 }
 
 export default async function Home() {
+  const yesterday = new Date(
+    Date.now() - 24 * 60 * 60 * 1000
+  ).toISOString();
+
   const [
     { data: alerts },
     { data: digest },
@@ -45,6 +50,7 @@ export default async function Home() {
     supabase
       .from("breaking_alerts")
       .select("*")
+      .gte("created_at", yesterday)
       .order("created_at", { ascending: false })
       .limit(8),
 
@@ -57,6 +63,7 @@ export default async function Home() {
     supabase
       .from("articles")
       .select("*")
+      .gte("published", yesterday)
       .order("published", { ascending: false })
       .limit(30),
   ]);
