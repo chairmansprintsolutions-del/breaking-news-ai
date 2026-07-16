@@ -1,11 +1,12 @@
 import Navbar from "./components/Navbar";
+import BreakingTicker from "./components/BreakingTicker";
 
 export default function V2Home() {
   return (
     <main>
 
       <Navbar />
-
+      <BreakingTicker />
       <section className="masthead">
         <div className="container">
 
