@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import BreakingTicker from "./components/BreakingTicker";
+import EditionHeader from "./components/EditionHeader";
 
 export default function V2Home() {
   return (
@@ -7,23 +8,7 @@ export default function V2Home() {
 
       <Navbar />
       <BreakingTicker />
-      <section className="masthead">
-        <div className="container">
-
-          <div className="edition">
-            EDITION #001
-          </div>
-
-          <h1>
-            BREAKING NEWS AI
-          </h1>
-
-          <p>
-            The World's First AI Newspaper
-          </p>
-
-        </div>
-      </section>
+      <EditionHeader />
 
       <section className="hero container">
 
