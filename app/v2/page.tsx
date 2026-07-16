@@ -3,6 +3,7 @@ import BreakingTicker from "./components/BreakingTicker";
 import EditionHeader from "./components/EditionHeader";
 import HeroStory from "./components/HeroStory";
 import TopStories from "./components/TopStories";
+import AIBrief from "./components/AIBrief";
 
 export default function V2Home() {
   return (
