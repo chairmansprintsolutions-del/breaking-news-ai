@@ -1717,3 +1717,71 @@ font-size:22px;
 }
 
 }
+/* ---------------- JOBS ---------------- */
+
+.jobs-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+gap:28px;
+
+margin-bottom:70px;
+
+}
+
+.job-card{
+
+padding:28px;
+
+}
+
+.job-type{
+
+display:inline-block;
+
+background:#111;
+
+color:white;
+
+padding:6px 12px;
+
+border-radius:20px;
+
+font-size:12px;
+
+font-weight:700;
+
+margin-bottom:18px;
+
+}
+
+.job-card h2,
+.job-card h3{
+
+font-family:Georgia,serif;
+
+font-size:28px;
+
+margin-bottom:16px;
+
+}
+
+.company{
+
+font-weight:700;
+
+margin-bottom:14px;
+
+color:#c30010;
+
+}
+
+.job-card p{
+
+margin-bottom:12px;
+
+line-height:1.6;
+
+}
