@@ -11,6 +11,7 @@ import QuoteOfDay from "./components/QuoteOfDay";
 import JokeOfDay from "./components/JokeOfDay";
 import CartoonOfDay from "./components/CartoonOfDay";
 import SportsSection from "./components/SportsSection";
+import JobsSection from "./components/JobsSection";
 import Footer from "./components/Footer";
 
 export default function V2Home() {
@@ -53,6 +54,9 @@ export default function V2Home() {
       </section>
       <section className="container">
         <SportsSection />
+      </section>
+      <section className="container">
+        <JobsSection />
       </section>
     <Footer />
     </main>
