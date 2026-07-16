@@ -9,6 +9,7 @@ import WeatherWidget from "./components/WeatherWidget";
 import LiveTV from "./components/LiveTV";
 import QuoteOfDay from "./components/QuoteOfDay";
 import JokeOfDay from "./components/JokeOfDay";
+import CartoonOfDay from "./components/CartoonOfDay";
 
 export default function V2Home() {
   return (
@@ -44,6 +45,9 @@ export default function V2Home() {
       <section className="container fun-section">
         <QuoteOfDay />
         <JokeOfDay />
+      </section>
+      <section className="container">
+        <CartoonOfDay />
       </section>
 
     </main>
