@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import BreakingTicker from "./components/BreakingTicker";
 import EditionHeader from "./components/EditionHeader";
+import HeroStory from "./components/HeroStory";
 
 export default function V2Home() {
   return (
@@ -11,24 +12,7 @@ export default function V2Home() {
       <EditionHeader />
 
       <section className="hero container">
-
-        <div className="hero-left card">
-
-          <span className="breaking">
-            BREAKING
-          </span>
-
-          <h2>
-            Today's Biggest Story
-          </h2>
-
-          <p>
-            This section will automatically display the
-            most important news collected during the
-            last 24 hours.
-          </p>
-
-        </div>
+        <HeroStory />
 
         <div className="hero-right">
 
