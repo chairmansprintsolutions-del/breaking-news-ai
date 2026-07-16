@@ -1,137 +1,55 @@
-/* ---------------- CARTOON ---------------- */
-
-.cartoon{
-
-margin:70px 0;
-
-padding:35px;
-
-}
-
-.cartoon-header{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-margin-bottom:30px;
-
-}
-
-.cartoon-header h2{
-
-font-family:Georgia,serif;
-
-font-size:38px;
-
-}
-
-.cartoon-header span{
-
-background:#111;
-
-color:white;
-
-padding:8px 16px;
-
-border-radius:25px;
-
-font-size:13px;
-
-font-weight:700;
-
-}
-
-.cartoon-image{
-
-height:520px;
-
-border:2px dashed #cfcfcf;
-
-border-radius:20px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-background:#fafafa;
-
-overflow:hidden;
-
-}
-
-.cartoon-placeholder{
-
-text-align:center;
-
-}
-
-.cartoon-placeholder{
-
-font-size:90px;
-
-}
-
-.cartoon-placeholder p{
-
-font-family:Georgia,serif;
-
-font-size:32px;
-
-margin-top:25px;
-
-}
-
-.cartoon-placeholder small{
-
-display:block;
-
-margin-top:15px;
-
-color:#777;
-
-font-size:16px;
-
-}
-
-@media(max-width:900px){
-
-.cartoon-image{
-
-height:320px;
-
-}
-
-.cartoon-header{
-
-flex-direction:column;
-
-align-items:flex-start;
-
-gap:15px;
-
-}
-
-.cartoon-header h2{
-
-font-size:28px;
-
-}
-
-.cartoon-placeholder{
-
-font-size:60px;
-
-}
-
-.cartoon-placeholder p{
-
-font-size:22px;
-
-}
-
+export default function Footer() {
+  return (
+    <footer className="footer">
+
+      <div className="container footer-grid">
+
+        <div>
+          <h2>BREAKING NEWS AI</h2>
+
+          <p>
+            The World's First AI Newspaper
+          </p>
+
+          <small>
+            AI Powered • Co-powered by Sprint Solutions
+          </small>
+        </div>
+
+        <div>
+          <h4>News</h4>
+
+          <a href="/v2">Home</a>
+          <a href="/v2/india">India</a>
+          <a href="/v2/world">World</a>
+          <a href="/v2/business">Business</a>
+          <a href="/v2/technology">Technology</a>
+        </div>
+
+        <div>
+          <h4>Explore</h4>
+
+          <a href="/v2/sports">Sports</a>
+          <a href="/v2/jobs">Jobs</a>
+          <a href="/v2/entertainment">Entertainment</a>
+          <a href="/v2/archive">Archive</a>
+        </div>
+
+        <div>
+          <h4>Coming Soon</h4>
+
+          <p>Daily PDF</p>
+          <p>Podcast</p>
+          <p>Editorial Cartoon</p>
+          <p>Personalized Edition</p>
+        </div>
+
+      </div>
+
+      <div className="copyright">
+        © 2026 Breaking News AI • Co-powered by Sprint Solutions
+      </div>
+
+    </footer>
+  );
 }
