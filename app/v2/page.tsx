@@ -37,33 +37,7 @@ export default function V2Home() {
       </section>
 
       <section className="container">
-
-        <h2 className="section-title">
-          Top Stories
-        </h2>
-
-        <div className="stories">
-
-          {[1,2,3,4,5].map((item)=>(
-            <div
-              className="story card"
-              key={item}
-            >
-              <div className="image"/>
-
-              <h3>
-                Story {item}
-              </h3>
-
-              <p>
-                News summary will appear here.
-              </p>
-
-            </div>
-          ))}
-
-        </div>
-
+        <TopStories />
       </section>
 
     </main>
