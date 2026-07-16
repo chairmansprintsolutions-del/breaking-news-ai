@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import BreakingTicker from "./components/BreakingTicker";
 import EditionHeader from "./components/EditionHeader";
+import MarketStrip from "./components/MarketStrip";
 import HeroStory from "./components/HeroStory";
 import TopStories from "./components/TopStories";
 import AIBrief from "./components/AIBrief";
@@ -12,6 +13,7 @@ export default function V2Home() {
       <Navbar />
       <BreakingTicker />
       <EditionHeader />
+      <MarketStrip />
 
       <section className="hero container">
         <HeroStory />
