@@ -10,6 +10,7 @@ import LiveTV from "./components/LiveTV";
 import QuoteOfDay from "./components/QuoteOfDay";
 import JokeOfDay from "./components/JokeOfDay";
 import CartoonOfDay from "./components/CartoonOfDay";
+import Footer from "./components/Footer";
 
 export default function V2Home() {
   return (
@@ -49,7 +50,7 @@ export default function V2Home() {
       <section className="container">
         <CartoonOfDay />
       </section>
-
+    <Footer />
     </main>
   );
 }
