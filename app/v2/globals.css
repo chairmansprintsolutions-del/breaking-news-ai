@@ -1785,3 +1785,86 @@ margin-bottom:12px;
 line-height:1.6;
 
 }
+/* ---------------- ENTERTAINMENT ---------------- */
+
+.ent-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+gap:28px;
+
+margin-bottom:70px;
+
+}
+
+.ent-card{
+
+overflow:hidden;
+
+}
+
+.ent-image{
+
+width:100%;
+
+height:220px;
+
+object-fit:cover;
+
+transition:.3s;
+
+}
+
+.ent-card:hover .ent-image{
+
+transform:scale(1.05);
+
+}
+
+.ent-content{
+
+padding:24px;
+
+}
+
+.ent-content span{
+
+display:inline-block;
+
+padding:6px 12px;
+
+background:#efefef;
+
+border-radius:20px;
+
+font-size:12px;
+
+font-weight:700;
+
+margin-bottom:16px;
+
+}
+
+.ent-content h3{
+
+font-family:Georgia,serif;
+
+font-size:28px;
+
+margin-bottom:16px;
+
+line-height:1.2;
+
+}
+
+.ent-content p{
+
+line-height:1.7;
+
+margin-bottom:20px;
+
+color:#555;
+
+}
