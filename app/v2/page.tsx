@@ -7,6 +7,8 @@ import TopStories from "./components/TopStories";
 import AIBrief from "./components/AIBrief";
 import WeatherWidget from "./components/WeatherWidget";
 import LiveTV from "./components/LiveTV";
+import QuoteOfDay from "./components/QuoteOfDay";
+import JokeOfDay from "./components/JokeOfDay";
 
 export default function V2Home() {
   return (
@@ -38,6 +40,10 @@ export default function V2Home() {
 
       <section className="container">
         <TopStories />
+      </section>
+      <section className="container fun-section">
+        <QuoteOfDay />
+        <JokeOfDay />
       </section>
 
     </main>
