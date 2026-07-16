@@ -25,9 +25,7 @@ export default function V2Home() {
             Weather
           </div>
 
-          <div className="card mini">
-            AI Brief
-          </div>
+          <AIBrief />
 
           <div className="card mini">
             Live TV
