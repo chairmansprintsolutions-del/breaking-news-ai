@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import BreakingTicker from "./components/BreakingTicker";
 import EditionHeader from "./components/EditionHeader";
 import HeroStory from "./components/HeroStory";
+import TopStories from "./components/TopStories";
 
 export default function V2Home() {
   return (
