@@ -5,6 +5,7 @@ import MarketStrip from "./components/MarketStrip";
 import HeroStory from "./components/HeroStory";
 import TopStories from "./components/TopStories";
 import AIBrief from "./components/AIBrief";
+import WeatherWidget from "./components/WeatherWidget";
 
 export default function V2Home() {
   return (
@@ -24,9 +25,7 @@ export default function V2Home() {
             Markets
           </div>
 
-          <div className="card mini">
-            Weather
-          </div>
+          <WeatherWidget />
 
           <AIBrief />
 
