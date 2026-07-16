@@ -6,6 +6,7 @@ import HeroStory from "./components/HeroStory";
 import TopStories from "./components/TopStories";
 import AIBrief from "./components/AIBrief";
 import WeatherWidget from "./components/WeatherWidget";
+import LiveTV from "./components/LiveTV";
 
 export default function V2Home() {
   return (
@@ -29,9 +30,7 @@ export default function V2Home() {
 
           <AIBrief />
 
-          <div className="card mini">
-            Live TV
-          </div>
+          <LiveTV />
 
         </div>
 
