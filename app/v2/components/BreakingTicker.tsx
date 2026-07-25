@@ -1,83 +1,19 @@
-"use client";
+<section className="breaking-ticker">
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
+    <div className="breaking-label">
 
-interface BreakingNews {
-  id: number;
-  title: string;
-}
+        🚨 BREAKING
 
-export default function BreakingTicker() {
-  const [items, setItems] = useState<BreakingNews[]>([]);
+    </div>
 
-  useEffect(() => {
-    async function load() {
-      try {
-        const res = await fetch("/api/breaking");
+    <div className="ticker-wrapper">
 
-        if (!res.ok) return;
+        <div className="ticker-content">
 
-        const data = await res.json();
-
-        setItems(data || []);
-      } catch {}
-    }
-
-    load();
-
-    const timer = setInterval(load, 60000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  return (
-    <div className="ticker">
-
-      <div className="ticker-label">
-        LIVE
-      </div>
-
-      <div className="ticker-scroll">
-
-        <div className="ticker-track">
-
-          {items.length === 0 && (
-            <>
-              <span>
-                Breaking news updates will appear here automatically.
-              </span>
-
-              <span>
-                AI continuously monitors trusted sources.
-              </span>
-            </>
-          )}
-
-          {items.map((item) => (
-            <Link
-              key={item.id}
-              href={`/alert/${item.id}`}
-              className="ticker-item"
-            >
-              ● {item.title}
-            </Link>
-          ))}
-
-          {items.map((item) => (
-            <Link
-              key={`repeat-${item.id}`}
-              href={`/alert/${item.id}`}
-              className="ticker-item"
-            >
-              ● {item.title}
-            </Link>
-          ))}
+            {/* Existing ticker items */}
 
         </div>
 
-      </div>
-
     </div>
-  );
-}
+
+</section>
