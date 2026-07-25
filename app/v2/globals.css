@@ -2005,3 +2005,151 @@ font-size:22px;
 }
 
 }
+/* =====================================================
+   NEWSPAPER HOME LAYOUT
+===================================================== */
+
+.newspaper{
+  background:#f5f3ee;
+  min-height:100vh;
+}
+
+.container{
+  width:min(1500px,96%);
+  margin:auto;
+}
+
+.front-page{
+  display:grid;
+  grid-template-columns:2.3fr 0.9fr;
+  gap:24px;
+  margin:28px auto;
+  align-items:start;
+}
+
+.lead-column{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+}
+
+.sidebar-column{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  position:sticky;
+  top:90px;
+}
+
+.newspaper-block{
+  margin:40px auto;
+}
+
+.section-title{
+  display:flex;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.section-title::before,
+.section-title::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:#cfcfcf;
+}
+
+.section-title span{
+  padding:0 18px;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:2px;
+  color:#8d0000;
+}
+
+.quick-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+  margin:40px auto;
+}
+
+.quick-card{
+  background:white;
+  border:1px solid #e2e2e2;
+  padding:18px;
+  border-radius:10px;
+  box-shadow:0 6px 18px rgba(0,0,0,.05);
+}
+
+.quick-card.full{
+  grid-column:1/-1;
+}
+
+.news-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+  margin:45px auto;
+}
+
+.news-card{
+  background:white;
+  border:1px solid #e6e6e6;
+  border-radius:12px;
+  padding:22px;
+  box-shadow:0 8px 22px rgba(0,0,0,.05);
+}
+
+.news-card:hover,
+.quick-card:hover{
+  transform:translateY(-3px);
+  transition:.25s;
+}
+
+@media(max-width:1200px){
+
+.front-page{
+grid-template-columns:1fr;
+}
+
+.sidebar-column{
+position:static;
+}
+
+}
+
+@media(max-width:900px){
+
+.news-grid{
+grid-template-columns:1fr;
+}
+
+.quick-grid{
+grid-template-columns:1fr;
+}
+
+.quick-card.full{
+grid-column:auto;
+}
+
+}
+
+@media(max-width:600px){
+
+.container{
+width:95%;
+}
+
+.section-title span{
+font-size:11px;
+letter-spacing:1px;
+padding:0 10px;
+}
+
+.news-card,
+.quick-card{
+padding:14px;
+}
+
+}
