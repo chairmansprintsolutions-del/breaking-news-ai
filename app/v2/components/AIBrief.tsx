@@ -1,56 +1,26 @@
-import { supabase } from "../../../lib/supabase";
+<section className="ai-brief">
 
-export default async function AIBrief() {
-  const since = new Date(
-    Date.now() - 24 * 60 * 60 * 1000
-  ).toISOString();
-
-  const { data } = await supabase
-    .from("articles")
-    .select("title,category")
-    .gte("published", since)
-    .order("importance_score", {
-      ascending: false,
-    })
-    .limit(5);
-
-  return (
-    <section className="ai-brief card fade">
-
-      <div className="ai-head">
+    <div className="ai-header">
 
         <div>
-          🤖 AI MORNING BRIEF
+            <h3>🤖 AI Brief</h3>
+            <p>Today's biggest story explained</p>
         </div>
 
-        <span>
-          Last 24 Hours
+        <span className="ai-badge">
+            AI
         </span>
 
-      </div>
+    </div>
 
-      <p className="ai-intro">
-        Here's everything important that happened today.
-      </p>
+    <div className="ai-content">
 
-      <ol className="ai-list">
+        {/* Existing AI summary */}
 
-        {(data || []).map((item, index) => (
-          <li key={index}>
+    </div>
 
-            <strong>
-              {item.category}
-            </strong>
+    <button className="ai-button">
+        Read Analysis →
+    </button>
 
-            <span>
-              {item.title}
-            </span>
-
-          </li>
-        ))}
-
-      </ol>
-
-    </section>
-  );
-}
+</section>
