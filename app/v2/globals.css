@@ -2995,3 +2995,71 @@ font-size:22px;
 }
 
 }
+/* ==================================
+   BREAKING TICKER
+================================== */
+
+.breaking-ticker{
+    display:flex;
+    align-items:center;
+    background:#111;
+    color:#fff;
+    height:52px;
+    overflow:hidden;
+    border-top:2px solid #dc2626;
+    border-bottom:2px solid #dc2626;
+}
+
+.breaking-label{
+    background:#dc2626;
+    padding:0 24px;
+    height:100%;
+    display:flex;
+    align-items:center;
+    font-weight:800;
+    letter-spacing:1px;
+    white-space:nowrap;
+}
+
+.ticker-wrapper{
+    flex:1;
+    overflow:hidden;
+    position:relative;
+}
+
+.ticker-content{
+    display:flex;
+    align-items:center;
+    gap:60px;
+    white-space:nowrap;
+    animation:tickerScroll 40s linear infinite;
+}
+
+.ticker-content:hover{
+    animation-play-state:paused;
+}
+
+@keyframes tickerScroll{
+
+0%{
+transform:translateX(100%);
+}
+
+100%{
+transform:translateX(-100%);
+}
+
+}
+
+@media(max-width:768px){
+
+.breaking-label{
+padding:0 14px;
+font-size:12px;
+}
+
+.breaking-ticker{
+height:44px;
+}
+
+}
