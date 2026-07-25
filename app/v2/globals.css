@@ -2619,3 +2619,72 @@ font-size:16px;
     color:#555;
     border-top:1px solid #eee;
 }
+/* ==================================
+   SPORTS
+================================== */
+
+.sports-section{
+    margin:0;
+}
+
+.sports-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.sports-header h2{
+    margin:0;
+    font-size:28px;
+    font-weight:800;
+}
+
+.sports-header span{
+    color:#777;
+    font-size:13px;
+}
+
+.sports-grid{
+    display:grid;
+    gap:18px;
+}
+
+.sports-card{
+    display:flex;
+    gap:16px;
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    overflow:hidden;
+    transition:.25s;
+}
+
+.sports-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 22px rgba(0,0,0,.08);
+}
+
+.sports-card img{
+    width:180px;
+    height:120px;
+    object-fit:cover;
+}
+
+.sports-content{
+    padding:16px;
+    flex:1;
+}
+
+.sports-title{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:8px;
+    line-height:1.4;
+}
+
+.sports-summary{
+    color:#666;
+    line-height:1.6;
+    font-size:14px;
+}
