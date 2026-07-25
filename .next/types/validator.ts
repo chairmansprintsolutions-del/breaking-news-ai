@@ -542,6 +542,42 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../app/v2/entertainment/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/v2/entertainment">> = Specific
+  const handler = {} as typeof import("../../app/v2/entertainment/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/v2/jobs/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/v2/jobs">> = Specific
+  const handler = {} as typeof import("../../app/v2/jobs/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/v2/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/v2">> = Specific
+  const handler = {} as typeof import("../../app/v2/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/v2/sports/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/v2/sports">> = Specific
+  const handler = {} as typeof import("../../app/v2/sports/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../app/war-room/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/war-room">> = Specific
