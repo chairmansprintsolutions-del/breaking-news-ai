@@ -1,70 +1,27 @@
-export default function LiveTV() {
-  const channels = [
-    {
-      name: "BBC News",
-      url: "https://www.youtube.com/@BBCNews/live",
-      color: "#c30010",
-    },
-    {
-      name: "Reuters",
-      url: "https://www.youtube.com/@Reuters/live",
-      color: "#111",
-    },
-    {
-      name: "DW News",
-      url: "https://www.youtube.com/@dwnews/live",
-      color: "#005BBB",
-    },
-    {
-      name: "France 24",
-      url: "https://www.youtube.com/@FRANCE24English/live",
-      color: "#0055ff",
-    },
-  ];
+<section className="livetv-card">
 
-  return (
-    <section className="livetv card fade">
-
-      <div className="livetv-header">
+    <div className="livetv-header">
 
         <h3>📺 Live TV</h3>
 
-        <span>LIVE</span>
+        <span className="live-dot">
+            ● LIVE
+        </span>
 
-      </div>
+    </div>
 
-      <div className="livetv-list">
+    <div className="livetv-player">
 
-        {channels.map((item) => (
+        {/* Existing Video / Embed */}
 
-          <a
-            key={item.name}
-            href={item.url}
-            target="_blank"
-            className="tv-row"
-          >
+    </div>
 
-            <div
-              className="tv-dot"
-              style={{
-                background: item.color,
-              }}
-            />
+    <div className="livetv-footer">
 
-            <strong>
-              {item.name}
-            </strong>
+        <button className="watch-button">
+            Watch Live →
+        </button>
 
-            <span>
-              Watch →
-            </span>
+    </div>
 
-          </a>
-
-        ))}
-
-      </div>
-
-    </section>
-  );
-}
+</section>
