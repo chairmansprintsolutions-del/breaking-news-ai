@@ -2911,3 +2911,87 @@ grid-template-columns:1fr;
 }
 
 }
+/* ==================================
+   NAVBAR
+================================== */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 32px;
+    background:#ffffffee;
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #e5e7eb;
+}
+
+.navbar-left{
+    display:flex;
+    align-items:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:900;
+    letter-spacing:1px;
+    color:#b91c1c;
+}
+
+.navbar-center{
+    display:flex;
+    gap:28px;
+    align-items:center;
+}
+
+.navbar-center a{
+    color:#222;
+    text-decoration:none;
+    font-weight:600;
+    transition:.25s;
+}
+
+.navbar-center a:hover{
+    color:#dc2626;
+}
+
+.navbar-right{
+    display:flex;
+    gap:12px;
+}
+
+.search-btn,
+.menu-btn{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:#f3f4f6;
+    cursor:pointer;
+    font-size:18px;
+    transition:.25s;
+}
+
+.search-btn:hover,
+.menu-btn:hover{
+    background:#dc2626;
+    color:#fff;
+}
+
+@media(max-width:900px){
+
+.navbar{
+padding:16px;
+}
+
+.navbar-center{
+display:none;
+}
+
+.logo{
+font-size:22px;
+}
+
+}
