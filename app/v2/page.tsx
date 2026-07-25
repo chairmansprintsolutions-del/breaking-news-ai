@@ -17,21 +17,31 @@ import Footer from "./components/Footer";
 
 export default function V2Home() {
   return (
-    <main>
+    <main className="newspaper">
 
       <Navbar />
+
       <BreakingTicker />
+
       <EditionHeader />
+
       <MarketStrip />
 
-      <section className="hero container">
-        <HeroStory />
+      {/* ===========================
+          FRONT PAGE
+      ============================ */}
 
-        <div className="hero-right">
+      <section className="container front-page">
 
-          <div className="card mini">
-            Markets
-          </div>
+        {/* LEFT - LEAD STORY */}
+        <div className="lead-column">
+
+          <HeroStory />
+
+        </div>
+
+        {/* RIGHT SIDEBAR */}
+        <aside className="sidebar-column">
 
           <WeatherWidget />
 
@@ -39,30 +49,88 @@ export default function V2Home() {
 
           <LiveTV />
 
+        </aside>
+
+      </section>
+
+      {/* ===========================
+          TOP STORIES
+      ============================ */}
+
+      <section className="container newspaper-block">
+
+        <div className="section-title">
+          <span>TOP STORIES</span>
+        </div>
+
+        <TopStories />
+
+      </section>
+
+      {/* ===========================
+          QUICK READS
+      ============================ */}
+
+      <section className="container quick-grid">
+
+        <div className="quick-card">
+          <QuoteOfDay />
+        </div>
+
+        <div className="quick-card">
+          <JokeOfDay />
+        </div>
+
+        <div className="quick-card full">
+          <CartoonOfDay />
         </div>
 
       </section>
 
-      <section className="container">
-        <TopStories />
+      {/* ===========================
+          NEWS GRID
+      ============================ */}
+
+      <section className="container news-grid">
+
+        <div className="news-card">
+
+          <div className="section-title">
+            <span>SPORTS</span>
+          </div>
+
+          <SportsSection />
+
+        </div>
+
+        <div className="news-card">
+
+          <div className="section-title">
+            <span>ENTERTAINMENT</span>
+          </div>
+
+          <EntertainmentSection />
+
+        </div>
+
       </section>
-      <section className="container fun-section">
-        <QuoteOfDay />
-        <JokeOfDay />
-      </section>
-      <section className="container">
-        <CartoonOfDay />
-      </section>
-      <section className="container">
-        <SportsSection />
-      </section>
-      <section className="container">
+
+      {/* ===========================
+          JOBS
+      ============================ */}
+
+      <section className="container newspaper-block">
+
+        <div className="section-title">
+          <span>CAREERS & JOBS</span>
+        </div>
+
         <JobsSection />
+
       </section>
-      <section className="container">
-        <EntertainmentSection />
-      </section>
-    <Footer />
+
+      <Footer />
+
     </main>
   );
 }
