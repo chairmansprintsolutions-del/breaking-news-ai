@@ -1,24 +1,25 @@
-export default function JokeOfDay() {
-  return (
-    <section className="joke-card card fade">
+<section className="joke-card">
 
-      <div className="joke-top">
-        😂 Joke of the Day
-      </div>
+    <div className="joke-header">
 
-      <p>
+        <span className="joke-emoji">
+            😂
+        </span>
 
-        Why did the AI become a journalist?
+        <h3>Joke of the Day</h3>
 
-      </p>
+    </div>
 
-      <h3>
+    <div className="joke-body">
 
-        Because it always wanted to break the news
-        before anyone else.
+        {/* Existing Joke */}
 
-      </h3>
+    </div>
 
-    </section>
-  );
-}
+    <div className="joke-footer">
+
+        Have a great day!
+
+    </div>
+
+</section>
