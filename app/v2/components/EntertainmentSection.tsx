@@ -1,87 +1,17 @@
-import Link from "next/link";
-import { supabase } from "../../../lib/supabase";
+<section className="entertainment-section">
 
-export default async function EntertainmentSection() {
+    <div className="entertainment-header">
 
-  const since = new Date(
-    Date.now() - 7 * 24 * 60 * 60 * 1000
-  ).toISOString();
+        <h2>🎬 Entertainment</h2>
 
-  const { data } = await supabase
-    .from("articles")
-    .select("*")
-    .or(
-      "category.eq.Entertainment,title.ilike.%movie%,title.ilike.%film%,title.ilike.%actor%,title.ilike.%actress%,title.ilike.%netflix%,title.ilike.%ott%,title.ilike.%music%"
-    )
-    .gte("published", since)
-    .order("published", {
-      ascending: false,
-    })
-    .limit(6);
+        <span>Movies • OTT • Celebrities</span>
 
-  return (
-    <section className="entertainment-section">
+    </div>
 
-      <div className="section-header">
+    <div className="entertainment-grid">
 
-        <h2 className="section-title">
-          🎬 Entertainment
-        </h2>
+        {/* Existing map() */}
 
-        <Link href="/v2/entertainment">
-          View All →
-        </Link>
+    </div>
 
-      </div>
-
-      <div className="ent-grid">
-
-        {(data || []).map((article: any) => (
-
-          <article
-            key={article.id}
-            className="ent-card card"
-          >
-
-            {article.image_url && (
-
-              <img
-                src={article.image_url}
-                alt={article.title}
-                className="ent-image"
-              />
-
-            )}
-
-            <div className="ent-content">
-
-              <span>
-                {article.category || "Entertainment"}
-              </span>
-
-              <h3>
-                {article.title}
-              </h3>
-
-              <p>
-                {article.summary}
-              </p>
-
-              <Link
-                href={`/article/${article.id}`}
-                className="story-read"
-              >
-                Read →
-              </Link>
-
-            </div>
-
-          </article>
-
-        ))}
-
-      </div>
-
-    </section>
-  );
-}
+</section>
