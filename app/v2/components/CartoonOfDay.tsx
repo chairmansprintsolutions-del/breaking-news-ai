@@ -1,37 +1,23 @@
-export default function CartoonOfDay() {
-  return (
-    <section className="cartoon card fade">
+<section className="cartoon-card">
 
-      <div className="cartoon-header">
+    <div className="cartoon-header">
 
-        <h2>
-          📰 Editorial Cartoon
-        </h2>
+        <h3>📰 Editorial Cartoon</h3>
 
-        <span>
-          Today's Cartoon
-        </span>
+        <span>Today's Pick</span>
 
-      </div>
+    </div>
 
-      <div className="cartoon-image">
+    <div className="cartoon-image">
 
-        <div className="cartoon-placeholder">
+        {/* Existing Cartoon Image */}
 
-          🎨
+    </div>
 
-          <p>
-            Daily AI Editorial Cartoon
-          </p>
+    <div className="cartoon-caption">
 
-          <small>
-            Automatically generated every morning
-          </small>
+        {/* Existing Caption */}
 
-        </div>
+    </div>
 
-      </div>
-
-    </section>
-  );
-}
+</section>
