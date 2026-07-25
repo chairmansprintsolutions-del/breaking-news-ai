@@ -3153,3 +3153,93 @@ font-size:32px;
 }
 
 }
+/* ==================================
+   MARKET STRIP
+================================== */
+
+.market-strip{
+    display:flex;
+    align-items:center;
+    gap:24px;
+    padding:18px 24px;
+    background:#ffffff;
+    border-bottom:1px solid #e5e7eb;
+    border-top:1px solid #e5e7eb;
+    overflow-x:auto;
+}
+
+.market-title{
+    flex-shrink:0;
+    font-size:20px;
+    font-weight:800;
+    color:#111827;
+}
+
+.market-grid{
+    display:flex;
+    gap:16px;
+    min-width:max-content;
+}
+
+.market-card{
+    min-width:180px;
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    padding:16px;
+    transition:.25s;
+}
+
+.market-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.market-name{
+    font-size:13px;
+    color:#64748b;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.market-value{
+    font-size:24px;
+    font-weight:800;
+    color:#111827;
+}
+
+.market-change{
+    margin-top:8px;
+    font-size:14px;
+    font-weight:700;
+}
+
+.market-change.positive{
+    color:#16a34a;
+}
+
+.market-change.negative{
+    color:#dc2626;
+}
+
+@media(max-width:768px){
+
+.market-strip{
+padding:14px;
+gap:14px;
+}
+
+.market-title{
+font-size:16px;
+}
+
+.market-card{
+min-width:150px;
+padding:12px;
+}
+
+.market-value{
+font-size:20px;
+}
+
+}
