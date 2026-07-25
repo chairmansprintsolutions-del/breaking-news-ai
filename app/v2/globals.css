@@ -2839,3 +2839,75 @@ font-size:16px;
 .job-button:hover{
     background:#dc2626;
 }
+/* ==================================
+   FOOTER
+================================== */
+
+.footer{
+    margin-top:70px;
+    background:#111827;
+    color:#fff;
+}
+
+.footer-top{
+    max-width:1500px;
+    margin:auto;
+    padding:60px 20px;
+    display:grid;
+    grid-template-columns:1.5fr 2fr;
+    gap:60px;
+}
+
+.footer-brand h2{
+    margin:0 0 15px;
+    font-size:34px;
+    font-weight:800;
+}
+
+.footer-brand p{
+    color:#cbd5e1;
+    line-height:1.8;
+    max-width:420px;
+}
+
+.footer-links{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:40px;
+}
+
+.footer-links h4{
+    margin-bottom:18px;
+    font-size:18px;
+}
+
+.footer-links a{
+    display:block;
+    color:#cbd5e1;
+    text-decoration:none;
+    margin-bottom:10px;
+    transition:.25s;
+}
+
+.footer-links a:hover{
+    color:#fff;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.1);
+    text-align:center;
+    padding:20px;
+    color:#94a3b8;
+}
+
+@media(max-width:900px){
+
+.footer-top{
+grid-template-columns:1fr;
+}
+
+.footer-links{
+grid-template-columns:1fr;
+}
+
+}
