@@ -2528,3 +2528,49 @@ font-size:16px;
     color:#666;
     font-size:15px;
 }
+/* ==================================
+   JOKE OF THE DAY
+================================== */
+
+.joke-card{
+    background:linear-gradient(135deg,#fff8dc,#fff3bf);
+    border:1px solid #f5d76e;
+    border-radius:14px;
+    padding:24px;
+    box-shadow:0 6px 18px rgba(0,0,0,.06);
+    height:100%;
+}
+
+.joke-header{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:18px;
+}
+
+.joke-emoji{
+    font-size:34px;
+}
+
+.joke-header h3{
+    margin:0;
+    font-size:22px;
+    font-weight:800;
+}
+
+.joke-body{
+    font-size:17px;
+    line-height:1.8;
+    color:#333;
+    min-height:90px;
+}
+
+.joke-footer{
+    margin-top:20px;
+    padding-top:14px;
+    border-top:1px dashed rgba(0,0,0,.15);
+    font-size:14px;
+    color:#777;
+    text-align:right;
+    font-style:italic;
+}
