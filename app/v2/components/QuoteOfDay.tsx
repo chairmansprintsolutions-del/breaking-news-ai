@@ -1,22 +1,19 @@
-export default function QuoteOfDay() {
-  return (
-    <section className="quote-card card fade">
+<section className="quote-card">
 
-      <div className="quote-top">
-        💡 Quote of the Day
-      </div>
+    <div className="quote-icon">
+        ❝
+    </div>
 
-      <blockquote>
+    <blockquote className="quote-text">
 
-        "The best way to predict the future
-        is to invent it."
+        {/* Existing Quote */}
 
-      </blockquote>
+    </blockquote>
 
-      <div className="quote-author">
-        — Alan Kay
-      </div>
+    <div className="quote-author">
 
-    </section>
-  );
-}
+        {/* Existing Author */}
+
+    </div>
+
+</section>
