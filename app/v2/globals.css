@@ -2757,3 +2757,85 @@ font-size:16px;
     line-height:1.6;
     font-size:14px;
 }
+/* ==================================
+   JOBS
+================================== */
+
+.jobs-section{
+    margin:0;
+}
+
+.jobs-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.jobs-header h2{
+    margin:0;
+    font-size:28px;
+    font-weight:800;
+}
+
+.jobs-header span{
+    color:#777;
+    font-size:13px;
+}
+
+.jobs-grid{
+    display:grid;
+    gap:18px;
+}
+
+.job-card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 22px;
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    transition:.25s;
+}
+
+.job-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 22px rgba(0,0,0,.08);
+}
+
+.job-info{
+    flex:1;
+}
+
+.job-title{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:6px;
+}
+
+.job-company{
+    color:#666;
+    font-size:14px;
+    margin-bottom:6px;
+}
+
+.job-location{
+    color:#888;
+    font-size:13px;
+}
+
+.job-button{
+    background:#0f172a;
+    color:#fff;
+    border:none;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:700;
+    transition:.25s;
+}
+
+.job-button:hover{
+    background:#dc2626;
+}
