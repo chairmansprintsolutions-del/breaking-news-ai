@@ -2688,3 +2688,72 @@ font-size:16px;
     line-height:1.6;
     font-size:14px;
 }
+/* ==================================
+   ENTERTAINMENT
+================================== */
+
+.entertainment-section{
+    margin:0;
+}
+
+.entertainment-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.entertainment-header h2{
+    margin:0;
+    font-size:28px;
+    font-weight:800;
+}
+
+.entertainment-header span{
+    color:#777;
+    font-size:13px;
+}
+
+.entertainment-grid{
+    display:grid;
+    gap:18px;
+}
+
+.entertainment-card{
+    display:flex;
+    gap:16px;
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    overflow:hidden;
+    transition:.25s;
+}
+
+.entertainment-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 22px rgba(0,0,0,.08);
+}
+
+.entertainment-card img{
+    width:180px;
+    height:120px;
+    object-fit:cover;
+}
+
+.entertainment-content{
+    padding:16px;
+    flex:1;
+}
+
+.entertainment-title{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:8px;
+    line-height:1.4;
+}
+
+.entertainment-summary{
+    color:#666;
+    line-height:1.6;
+    font-size:14px;
+}
