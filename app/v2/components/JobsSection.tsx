@@ -1,73 +1,17 @@
-import Link from "next/link";
-import { supabase } from "../../../lib/supabase";
+<section className="jobs-section">
 
-export default async function JobsSection() {
-  const { data } = await supabase
-    .from("jobs")
-    .select("*")
-    .order("created_at", {
-      ascending: false,
-    })
-    .limit(6);
+    <div className="jobs-header">
 
-  return (
-    <section className="jobs-section">
+        <h2>💼 Careers & Jobs</h2>
 
-      <div className="section-header">
+        <span>Latest Opportunities</span>
 
-        <h2 className="section-title">
-          💼 Jobs Today
-        </h2>
+    </div>
 
-        <Link href="/v2/jobs">
-          View All →
-        </Link>
+    <div className="jobs-grid">
 
-      </div>
+        {/* Existing map() */}
 
-      <div className="jobs-grid">
+    </div>
 
-        {(data || []).map((job: any) => (
-
-          <article
-            key={job.id}
-            className="job-card card"
-          >
-
-            <div className="job-type">
-              {job.category || "Job"}
-            </div>
-
-            <h3>
-              {job.title}
-            </h3>
-
-            <p className="company">
-              {job.company}
-            </p>
-
-            <p>
-              📍 {job.location}
-            </p>
-
-            <p>
-              💰 {job.salary || "Salary Not Disclosed"}
-            </p>
-
-            <a
-              href={job.apply_url}
-              target="_blank"
-              className="story-read"
-            >
-              Apply →
-            </a>
-
-          </article>
-
-        ))}
-
-      </div>
-
-    </section>
-  );
-}
+</section>
