@@ -1,79 +1,31 @@
-import Link from "next/link";
-import { supabase } from "../../../lib/supabase";
+<div className="hero-story">
+  <div className="hero-image">
+    {/* Existing Image */}
+  </div>
 
-export default async function HeroStory() {
-  const since = new Date(
-    Date.now() - 24 * 60 * 60 * 1000
-  ).toISOString();
+  <div className="hero-content">
 
-  const { data } = await supabase
-    .from("articles")
-    .select("*")
-    .gte("published", since)
-    .order("importance_score", {
-      ascending: false,
-    })
-    .order("published", {
-      ascending: false,
-    })
-    .limit(1);
+    <span className="hero-category">
+      BREAKING
+    </span>
 
-  const article = data?.[0];
+    <h1 className="hero-title">
+      {/* Existing Headline */}
+    </h1>
 
-  if (!article) {
-    return (
-      <div className="hero-card card">
-        <h2>No major story available</h2>
-      </div>
-    );
-  }
+    <div className="hero-meta">
+      <span>Updated 2 min ago</span>
+      <span>•</span>
+      <span>5 min read</span>
+    </div>
 
-  return (
-    <section className="hero-card card fade">
+    <p className="hero-summary">
+      {/* Existing Summary */}
+    </p>
 
-      {article.image_url && (
-        <img
-          className="hero-image"
-          src={article.image_url}
-          alt={article.title}
-        />
-      )}
+    <button className="hero-button">
+      Read Full Story →
+    </button>
 
-      <div className="hero-content">
-
-        <span className="hero-category">
-          {article.category}
-        </span>
-
-        <h2>
-          {article.title}
-        </h2>
-
-        <p>
-          {article.summary}
-        </p>
-
-        <div className="hero-actions">
-
-          <Link
-            href={`/article/${article.id}`}
-            className="hero-btn"
-          >
-            Read Story →
-          </Link>
-
-          <a
-            href={article.url}
-            target="_blank"
-            className="hero-link"
-          >
-            Original Source
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-  );
-}
+  </div>
+</div>
