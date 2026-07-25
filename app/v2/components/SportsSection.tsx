@@ -1,86 +1,17 @@
-import Link from "next/link";
-import { supabase } from "../../../lib/supabase";
+<section className="sports-section">
 
-export default async function SportsSection() {
-  const since = new Date(
-    Date.now() - 7 * 24 * 60 * 60 * 1000
-  ).toISOString();
+    <div className="sports-header">
 
-  const { data } = await supabase
-    .from("articles")
-    .select("*")
-    .or(
-      "category.eq.Sports,title.ilike.%cricket%,title.ilike.%football%,title.ilike.%tennis%,title.ilike.%f1%,title.ilike.%formula%"
-    )
-    .gte("published", since)
-    .order("published", {
-      ascending: false,
-    })
-    .limit(6);
+        <h2>⚽ Sports</h2>
 
-  return (
-    <section className="sports-section">
+        <span>Latest Updates</span>
 
-      <div className="section-header">
+    </div>
 
-        <h2 className="section-title">
-          🏆 Sports
-        </h2>
+    <div className="sports-grid">
 
-        <Link href="/sports">
-          View All →
-        </Link>
+        {/* Existing map() */}
 
-      </div>
+    </div>
 
-      <div className="sports-grid">
-
-        {(data || []).map((article: any) => (
-
-          <article
-            key={article.id}
-            className="sports-card card"
-          >
-
-            {article.image_url && (
-
-              <img
-                src={article.image_url}
-                className="sports-image"
-                alt={article.title}
-              />
-
-            )}
-
-            <div className="sports-content">
-
-              <span>
-                {article.category || "Sports"}
-              </span>
-
-              <h3>
-                {article.title}
-              </h3>
-
-              <p>
-                {article.summary}
-              </p>
-
-              <Link
-                href={`/article/${article.id}`}
-                className="story-read"
-              >
-                Read →
-              </Link>
-
-            </div>
-
-          </article>
-
-        ))}
-
-      </div>
-
-    </section>
-  );
-}
+</section>
